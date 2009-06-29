@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="window">
+    <property name="resizable">False</property>
+    <signal name="destroy" handler="on_window_destroy"/>
+    <child>
+      <object class="GtkFixed" id="fixed1">
+        <property name="width_request">220</property>
+        <property name="height_request">260</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkHScale" id="crossfader">
+            <property name="width_request">200</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">crossfader_adjustment</property>
+            <property name="digits">0</property>
+            <signal name="change_value" handler="on_crossfader_change_value"/>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">210</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVScale" id="vol1">
+            <property name="width_request">50</property>
+            <property name="height_request">200</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="orientation">vertical</property>
+            <property name="adjustment">vol1_adjustment</property>
+            <property name="inverted">True</property>
+            <signal name="change_value" handler="on_vol1_change_value"/>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVScale" id="vol2">
+            <property name="width_request">50</property>
+            <property name="height_request">200</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="orientation">vertical</property>
+            <property name="adjustment">vol2_adjustment</property>
+            <property name="inverted">True</property>
+            <signal name="change_value" handler="on_vol2_change_value"/>
+          </object>
+          <packing>
+            <property name="x">160</property>
+            <property name="y">10</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAdjustment" id="crossfader_adjustment">
+    <property name="value">50</property>
+    <property name="upper">100</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">1</property>
+  </object>
+  <object class="GtkAdjustment" id="vol1_adjustment">
+    <property name="value">100</property>
+    <property name="upper">100</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="vol2_adjustment">
+    <property name="value">100</property>
+    <property name="upper">100</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">10</property>
+  </object>
+</interface>
